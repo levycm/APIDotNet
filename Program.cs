@@ -1,3 +1,5 @@
+using APIDotNet.Services.Task;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<TaskSearchService>();
+builder.Services.AddScoped<TaskSaveService>();
+builder.Services.AddScoped<TaskDeleteService>();
+builder.Services.AddScoped<TaskUpdateService>();
 
 var app = builder.Build();
 
